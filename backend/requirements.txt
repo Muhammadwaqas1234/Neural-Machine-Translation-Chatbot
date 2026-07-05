@@ -1,5 +1,9 @@
 fastapi
-uvicorn
+uvicorn[standard]
+pydantic
+
+# ML stack
 torch
 spacy
-pydantic
+# After installing, download the tokenizer model:
+#   python -m spacy download en_core_web_sm

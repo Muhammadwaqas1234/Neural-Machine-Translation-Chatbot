@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <title>NMT Chatbot</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NMT Chatbot — English to French</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -12,17 +15,32 @@
 
         <header class="chat-header">
             <div class="brand">
-                <span class="logo-circle"></span>
-                <h2>Neural Machine Translation Chatbot</h2>
+                <div class="logo-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 6 6M4 14l6-6 2-3M2 5h12M7 2h1M22 22l-5-10-5 10M14 18h6"/></svg>
+                </div>
+                <div>
+                    <h2>NMT Chatbot</h2>
+                    <p>Seq2Seq BiLSTM · Attention</p>
+                </div>
             </div>
-            <span class="status-badge">Online</span>
+            <div class="header-right">
+                <span class="lang-pill">EN → FR</span>
+                <span class="status-badge" id="statusBadge"><i></i>Checking…</span>
+            </div>
         </header>
 
-        <div id="chat-box" class="chat-box"></div>
+        <div id="chat-box" class="chat-box">
+            <div class="welcome" id="welcome">
+                <h3>Bonjour! 👋</h3>
+                <p>Type an English sentence and the neural model will translate it to French — with attention over every word.</p>
+            </div>
+        </div>
 
         <div class="input-area">
-            <input id="user-input" type="text" placeholder="Type your sentence..." />
-            <button onclick="sendMessage()">Send</button>
+            <input id="user-input" type="text" placeholder="Type an English sentence…" autocomplete="off" />
+            <button id="sendBtn" onclick="sendMessage()" aria-label="Send">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></svg>
+            </button>
         </div>
 
     </div>
